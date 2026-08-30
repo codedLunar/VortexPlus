@@ -1,0 +1,210 @@
+:root {
+    --background-gradient: linear-gradient(180deg,#3a00ad #4046e7);
+}
+
+body {
+  padding: 25px;
+}
+
+html {
+    background: linear-gradient(180deg,#3a00ad, #4046e7);
+    overflow: hidden;
+}
+
+* {
+    color: white;
+    font-family: Roboto;
+    text-align: center;
+}
+
+.main {
+  position: relative;
+  min-height: 800px;
+  height: 100vh;
+  width: 100%;
+}
+
+#progress-bar {
+    width: 660px;
+    height: 15px;
+    background-color: #333;
+
+    border-radius: 15px;
+
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    margin-top: 200px;
+
+    transition: 0.5s margin-top;
+}
+
+#meter {
+    position: absolute;
+    top: 74%;
+    left: 0%;
+
+    transform: translate(0%, -74%);
+
+    border-radius: 15px;
+
+    padding-right: 0px;
+
+    width: 0px;
+    height: 15px;
+    background: linear-gradient(50deg, #7c3aed,  #8283ff);
+
+    transition: 1.3s padding-right;
+
+    animation: rainbowBg 0.5s ease-in-out infinite;
+}
+
+.disabled {
+    cursor: not-allowed !important;
+    color: #333;
+}
+
+/*.bar {
+    position: absolute;
+      top: -10%;
+      width: 5px;
+      height: 20px;
+      background: linear-gradient(180deg, #ff70fd, #d414d1);
+      z-index: 15;
+      border-radius: 5px;
+}
+
+#bar-0 {
+    left: 0%;
+}
+
+#bar-1 {
+    left: 32.7%
+}
+
+#bar-2 {
+    left: 66.3%
+}
+
+#bar-3 {
+    left: 99.3%
+}
+*/
+
+.page {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  padding: 30px;
+  border-radius: 5px;
+
+  background: linear-gradient(270deg, #5c00fb, #7c3aed);
+
+  transform: translate(-50%, -50%);
+
+  width: 600px;
+}
+
+.next {
+    background-color: #000e6d;
+
+    width: 70%;
+    height: 50px;
+
+    border: none;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    transition: 0.15s background-color;
+}
+
+.next:hover {
+  background-color: #00159b;
+}
+
+@keyframes moveLeft {
+  0% {
+    left: 0%;
+    opacity: 0;
+  }
+
+  100% {
+    left: 50%;
+    opacity: 1;
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    left: 50%;
+    opacity: 1;
+  }
+
+  100% {
+    left: 100%;
+    opacity: 0;
+  }
+}
+
+
+.transition-1 {
+  animation: moveRight 0.50s ease-in-out 1;
+}
+
+.transition-0 {
+  animation: moveLeft 0.50s ease-in-out 1;
+}
+
+#m-2 {
+  display: none;
+}
+
+#m-3 {
+  display: none;
+}
+
+#m-4 {
+  display: none;
+}
+
+#m-5 {
+    display: none;
+}
+
+.social {
+  width: 35%;
+
+  height: 50px;
+
+  border: none;
+  border-radius: 5px;
+
+  cursor: pointer;
+
+  transition: 0.15s background-color;
+}
+
+.dc {
+  background-color: #5561ea;
+
+  transition: 0.15s background-color;
+}
+
+.dc:hover {
+  background-color: #606bea;
+}
+
+.gh {
+  background-color: #000909;
+
+  transition: 0.15s background-color;
+}
+
+.gh:hover {
+  background-color: #001919;
+}

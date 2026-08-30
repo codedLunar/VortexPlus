@@ -1,0 +1,289 @@
+:root {
+    --background-gradient: linear-gradient(180deg, hsla(260, 100%, 34%, 1) 0%, hsla(238, 78%, 58%, 1) 100%);
+    --navbar-bg-gradient: linear-gradient(to bottom, #582cc9, #361391);
+    --navbar-search-bg: #1b0060;
+    --navbar-search-icon-color: #8283ff;
+    --navbar-search-text-color: #8283ff;
+    --play-btn-bg: #7c3aed;
+    --games-bg: linear-gradient(to bottom, #582cc9, #361391);
+    --footer-bg: #1b0060;
+    --bio-box-bg: #2d006e;
+    --profile-info-panel-bg: #28005b;
+    --biotext-area-bg: #400c80;
+    --btn-primary-bg: #7c3aed;
+    --btn-primary-bg-hover: #6d28d9;
+    --game-description-box-bg: #26088f;
+    --server-card-bg: #0e0052;
+    --download-bg: linear-gradient(180deg, hsl(260, 100%, 16.5%) 0%, hsl(237.9, 69.6%, 40%) 100%);
+}
+
+* {
+    color: white !important;
+}
+
+html, body {
+    background: var(--background-gradient);
+    overscroll-behavior: none;
+    scrollbar-color: var(--navbar-search-icon-color) transparent;
+}
+
+.navbar {
+    background: var(--navbar-bg-gradient);
+    /*margin: 10px 10px 0 10px;*/
+    transition: margin 0.15s;
+}
+
+#search-input {
+    background-color: var(--navbar-search-bg) !important;
+}
+
+.navbar *:hover {
+    background: transparent ;
+}
+
+.game-card {
+    background: var(--games-bg);
+    border: none;
+    border-radius: 5px;
+}
+
+.navbar.scrolled {
+    margin: 0;
+}
+
+.navbar .navbar-logo-img {
+    height: 60px ;
+}
+
+.navbar-icon-btn {
+    color: white ;
+    width: 50px ;
+    height: 50px ;
+    font-size: 1.3rem ;
+}
+
+#navbar-volts-pill {
+    background-color: transparent ;
+    border: none ;
+    color: white ;
+}
+
+#navbar-volts-pill .fa-bolt {
+    font-size: 1.3rem ;
+    color: white ;
+}
+
+#navbar-volts-count {
+    font-size: 1.3rem ;
+}
+
+.navbar-pill {
+    background-color: transparent;
+    border: none;
+}
+
+.navbar-pill * {
+    color: white ;
+    width: 50px ;
+    height: 50px ;
+    font-size: 1.3rem ;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-studio-card {
+    background-color: transparent;
+    border: none;
+    height: 60px;
+}
+
+.navbar-studio-card * {
+    font-size: 1rem;
+    color: white;
+}
+
+#search-form {
+    max-width: 455px ;
+    height: 50px ;
+}
+
+#search-form .fa-magnifying-glass {
+    color: var(--navbar-search-icon-color);
+    font-size: 1.3rem ;
+}
+
+#search-input {
+    background-color: #1b0060 ;
+    color: var(--navbar-search-text-color);
+    border: none ;
+    padding-left: 50px;
+    font-size: 1rem;
+}
+
+#search-input::placeholder {
+    color: var(--navbar-search-text-color) ;
+}
+
+#my-profile-btn {
+    width: 55px;
+    height: 55px;
+}
+
+#my-profile-btn img {
+    border-radius: 2px;
+}
+
+.btn-play {
+    background: var(--btn-primary-bg);
+}
+
+
+.btn-play:hover {
+    background: var(--btn-primary-bg-hover);
+}
+
+.site-footer {
+    background-color: var(--footer-bg);
+    border: none;
+}
+
+.site-footer-bottom {
+    border-top: none;
+}
+
+.friend-avatar {
+    border-radius: 55px;
+}
+
+.friend-status {
+    color: #b4b4b4 !important;
+}
+
+.game-detail-header * {
+    color: white
+}
+
+.game-description-box {
+    background-color: var(--game-description-box-bg);
+}
+
+.game-description-label {
+    display: none;
+}
+
+.server-card {
+    background-color: var(--server-card-bg);
+}
+
+#bio-box {
+    background: var(--bio-box-bg);
+}
+
+.btn-primary {
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+}
+
+.btn-primary:hover {
+    background-color: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-bg-hover);
+}
+
+.btn-join {
+    background-color: var(--btn-primary-bg);
+    border-color: var(--btn-primary-bg);
+}
+
+.btn-join:hover {
+    background-color: var(--btn-primary-bg-hover);
+    border-color: var(--btn-primary-bg-hover);
+}
+
+.btn-secondary svg {
+    fill: #8a8a9c ;
+}
+
+.btn-secondary svg::hover {
+    fill: white ;
+}
+
+.bio-textarea {
+    background-color: var(--biotext-area-bg);
+    border: none;
+}
+
+.game-stat-label {
+    display: none;
+}
+
+.profile-info-panel {
+    background-color: var(--profile-info-panel-bg);
+}
+
+.dl-footer-note {
+    color: #fff;
+}
+
+.dl-card {
+    background: var(--download-bg);
+}
+
+.dl-hero {
+    border-bottom: none;
+}
+
+.fa-twitter {
+    color: #009ced !important;
+}
+
+.fa-youtube {
+    color: #f60000 !important;
+}
+
+.site-footer-icon-btn {
+    background-color: white;
+}
+
+.site-footer-icon-btn .fa-discord {
+        color: #5561ea !important;
+}
+
+
+.site-footer-icon-btn:hover {
+    background-color: slategray;
+}
+
+.vp-spoiler {
+  background-color: black;
+  color: black !important;
+  padding: 0 4px;
+  border-radius: 4px;
+  width: fit-content;
+
+  user-select: none;
+  -webkit-user-select: none;
+
+  /*transition: color 0.2s ease-in-out; -- commented out because it takes 0.2s to load the spoiler, which makes it useless in the first place*/
+
+  cursor: pointer
+}
+
+.vp-spoiler-clicked {
+  color: white !important;
+}
+
+
+.volt-icon {
+    width: 25px !important;
+    height: 25px !important;
+}
+
+.volt-icon path {
+    fill: var(--navbar-search-icon-color) !important;
+}
+
+.pack-tag {
+    background: var(--btn-primary-bg-hover) !important;
+}

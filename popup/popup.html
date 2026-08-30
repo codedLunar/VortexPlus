@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vortex+ Configuration</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <img src="../images/vortexpluslogo.png" width="150px" height="auto" id="title">
+  <p style="text-align:center;">Like Vortex+? Give us a <a href="examplerating.html" style="color:#61dce9;">rating</a>!</p> <!-- temporarily a random addon bcus we dont have a extension page yet -->
+  <br>
+  <p style="display: inline;"><strong>Master toggle: </strong></p><input type="checkbox" name="" id="mastertoggle" class="mastertoggle" checked><br>
+  <div class="main-toggles">
+  <details id="details-nav">
+    <summary>Navbar</summary>
+    <p style="display: inline;">Profile username: </p><input type="checkbox" name="" id="navbar-username" class="profile_username" checked><br>
+  </details>
+  <details id="details-general">
+      <summary>General</summary>
+      <p style="display: inline;">Vortex plus logo: </p><input type="checkbox" name="" id="vortex-plus-logo" class="vortex_plus_logo" checked><br>
+      <p style="display: inline;">Streamer Mode: </p><input type="checkbox" name="" id="streamer-mode" class="steamer_mode"><br><br>
+  </details>
+  <p style="display: inline;">Theme: </p><select id="theme"><option value="1">Regular</option><option value="2">Red</option><option value="3">Orange</option><option value="4">Green</option><option value="5">Pink</option><option value="6">Black and white</option></select><br>
+  </div>
+  <div></div> <!-- save btn placeholder -->
+  <div id="saverevert-a"><div id="saverevert"></div></div>
+  <script src="popup.js"></script>
+</body>
+</html>

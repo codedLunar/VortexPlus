@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Vortex+",
+  "version": "1.0",
+  "description": "Vortex+ is a browser extension for playvortex.io that adds a ton of new features! Such as stats, themes, streamer mode and more!",
+  "content_scripts": [
+    {
+      "matches": ["https://playvortex.io/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "icons": {
+    "128": "icons/vortexplustransparent.png"
+  },
+  "permissions": [
+    "scripting",
+    "downloads",
+    "storage",
+    "browsingData"
+  ],
+  "host_permissions": [
+    "*://*.playvortex.io/*"
+  ],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["images/vortexpluslogo.png","config.js","styles.css"],
+      "matches": ["*://playvortex.io/*", "*://*.playvortex.io/*"]
+    }
+  ],
+  "action": {
+    "default_popup": "popup/popup.html"
+  }
+}
