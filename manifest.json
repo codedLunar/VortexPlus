@@ -12,6 +12,11 @@
   "icons": {
     "128": "icons/vortexplustransparent.png"
   },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "@vortexplus-codedlunar"
+    }
+  },
   "permissions": [
     "scripting",
     "downloads",
