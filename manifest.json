@@ -17,6 +17,11 @@
       "id": "@vortexplus-codedlunar"
     }
   },
+  "data_collection_permissions": {
+    "required": [
+      "none"
+    ]
+  },
   "permissions": [
     "scripting",
     "downloads",
