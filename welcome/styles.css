@@ -8,7 +8,14 @@ body {
 
 html {
     background: linear-gradient(180deg,#3a00ad, #4046e7);
-    overflow: hidden;
+}
+
+h1 {
+    font-size: 2.5rem;
+}
+
+p {
+    font-size: 1.1rem;
 }
 
 * {
