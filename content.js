@@ -160,14 +160,19 @@ async function main() {
         games_number.push(game_number)
 
 
-        const visits_template = document.createElement("template");
+        const visits_template_span = document.createElement("span")
+        visits_template_span.classList.add("game-stat-value")
+        visits_template_span.style.fontSize = "0.75rem"
+        visits_template_span.style.color = "#8a8a9c"
 
-        visits_template.innerHTML = `<span class="game-stat-value" style="font-size: 0.75rem; color: #8a8a9c"><i class="fa-solid fa-eye" style="font-size: 0.75rem"></i>${visits}</span>`
+        const visits_template_i = document.createElement("i")
+        visits_template_i.classList.add("fa-solid")
+        visits_template_i.classList.add("fa-eye")
+        visits_template_i.style.fontSize = "0.75rem"
 
-        const stat = visits_template.content.firstElementChild;
+        visits_template_span.append(visits_template_i, document.createTextNode(String(visits)))
 
-
-        element.querySelector(".game-card-meta").append(stat)
+        element.querySelector(".game-card-meta").append(visits_template_span)
       });
 
     await get_studio_data();
@@ -193,23 +198,38 @@ async function main() {
 
     const home_intro_body = document.querySelector(".home-intro-body")
 
+    const most_popular_game_link = document.createElement("a");
+
+    most_popular_game_link.classList.add("btn-play")
+    most_popular_game_link.style.width = "90px"
+    most_popular_game_link.href = `/games/${game_biggest_ccu_id}/play`
+    most_popular_game_link.textContent = "Play"
+
     const active_ccu_element = document.createElement("h3");
-    const most_popular_game_element = document.createElement("h3")
+    const active_ccu_i = document.createElement("i");
 
-    const most_popular_game_template = document.createElement("template");
-    most_popular_game_template.innerHTML = `</br><a class="btn-play" style="width: 90px;" href="/games/${game_biggest_ccu_id}/play">Play</a>`
-    const most_popular_game_play = most_popular_game_template.content.firstElementChild;
+    active_ccu_i.classList.add("fa-solid")
+    active_ccu_i.classList.add("fa-users")
+    active_ccu_i.style.display = "inline"
 
-    active_ccu_element.innerHTML = `Active CCU: <i class="fa-solid fa-users"></i> ${active_ccu}`
     active_ccu_element.style.marginBottom = "15px"
     active_ccu_element.style.fontWeight = "normal"
-    most_popular_game_element.innerHTML = `Most popular game: ${game_biggest_ccu_name} with <i class="fa-solid fa-users"></i> ${game_biggest_ccu}`
-    most_popular_game_element.style.marginBottom = "5px"
+
+    const most_popular_game_element = document.createElement("h3")
+    const most_popular_game_i = document.createElement("i")
+
     most_popular_game_element.style.fontWeight = "normal"
+
+    most_popular_game_i.classList.add("fa-solid")
+    most_popular_game_i.classList.add("fa-users")
+
+    most_popular_game_element.append(document.createTextNode(`Most popular game: ${game_biggest_ccu_name} with `), most_popular_game_i, document.createTextNode(` ${game_biggest_ccu}`))
+
+    active_ccu_element.append(document.createTextNode("Active CCU: "), active_ccu_i, document.createTextNode(` ${active_ccu}`))
 
     home_intro_body.append(active_ccu_element)
     home_intro_body.append(most_popular_game_element)
-    home_intro_body.append(most_popular_game_play)
+    home_intro_body.append(most_popular_game_link)
 
 
       // player icons (offline, online, in-game)
@@ -241,30 +261,33 @@ async function main() {
         // custom
         offline = true
 
-        const template = document.createElement("template");
+        const status_icon_span = document.createElement("span");
 
-        template.innerHTML = `<span class="status-dot in-game" style="position: relative;
-          bottom: 53px;
-          right: -52px; width: 12px; height: 12px; background: #5D5D5D;"></span>`
+        status_icon_span.classList.add("status-dot")
+        status_icon_span.classList.add("in-game")
+        status_icon_span.style.position = "relative"
+        status_icon_span.style.bottom = "53px"
+        status_icon_span.style.right = "-52px"
+        status_icon_span.style.width = "12px"
+        status_icon_span.style.height = "12px"
+        status_icon_span.style.background = "#5D5D5D"
 
-        const stat = template.content.firstElementChild;
-
-
-        element.append(stat)
+        element.append(status_icon_span)
       }
 
         if (offline == false) {
 
-        const template = document.createElement("template");
+          const status_icon_span = document.createElement("span");
 
-        template.innerHTML = `<span class="status-dot ${status}" style="position: relative;
-        bottom: 53px;
-        right: -52px;"></span>`
+          status_icon_span.classList.add("status-dot")
+          status_icon_span.classList.add("in")
+          status_icon_span.style.position = "relative"
+          status_icon_span.style.bottom = "53px"
+          status_icon_span.style.right = "-52px"
+          status_icon_span.style.width = "12px"
+          status_icon_span.style.height = "12px"
 
-        const stat = template.content.firstElementChild;
-
-
-          element.append(stat)
+          element.append(status_icon_span)
         }
 
 
@@ -307,14 +330,18 @@ async function games_page() {
   }
 }
 
-async function profile_page() {
+async function volts_page() {
+
+  if (window.location.pathname === "/volts" && config.theme == "6") {
+    console.log("wsg")
+    document.querySelectorAll(".volts-card").forEach((element) => { element.children[0].style.filter = "saturate(0)" })
+  }
+
+  /*
   await get_user_data()
   if (window.location.pathname.startsWith("/users/")) {
     if (Number(window.location.pathname.split("/")[2]) == me_data.id) {
       const edit_icon_template = document.createElement("template")
-
-      edit_icon_template.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="color: white;width: 15px;" fill="#8a8a9c"><!--!Font Awesome Free v7.3.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path d="M441 58.9L453.1 71c9.4 9.4 9.4 24.6 0 33.9L424 134.1 377.9 88 407 58.9c9.4-9.4 24.6-9.4 33.9 0zM209.8 256.2L344 121.9 390.1 168 255.8 302.2c-2.9 2.9-6.5 5-10.4 6.1l-58.5 16.7 16.7-58.5c1.1-3.9 3.2-7.5 6.1-10.4zM373.1 25L175.8 222.2c-8.7 8.7-15 19.4-18.3 31.1l-28.6 100c-2.4 8.4-.1 17.4 6.1 23.6s15.2 8.5 23.6 6.1l100-28.6c11.8-3.4 22.5-9.7 31.1-18.3L487 138.9c28.1-28.1 28.1-73.7 0-101.8L474.9 25C446.8-3.1 401.2-3.1 373.1 25zM88 64C39.4 64 0 103.4 0 152L0 424c0 48.6 39.4 88 88 88l272 0c48.6 0 88-39.4 88-88l0-112c0-13.3-10.7-24-24-24s-24 10.7-24 24l0 112c0 22.1-17.9 40-40 40L88 464c-22.1 0-40-17.9-40-40l0-272c0-22.1 17.9-40 40-40l112 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L88 64z"></path></svg>`
-
       const edit_icon = edit_icon_template.content.firstElementChild
 
       const waitForButton = setInterval(() => {
@@ -330,7 +357,7 @@ async function profile_page() {
         }
       }, 100);
     }
-  }
+  }*/
 }
 
 function commands() {
@@ -367,6 +394,7 @@ function themes(theme) {
     document.documentElement.style.setProperty("--game-description-box-bg", "#8f0808")
     document.documentElement.style.setProperty("--server-card-bg", "#520000")
     document.documentElement.style.setProperty("--download-bg", "linear-gradient(180deg, hsl(0, 100%, 16.5%) 0%, hsl(0, 69.6%, 40%) 100%)")
+    document.documentElement.style.setProperty("--volts-deg", "100deg")
   }
   if (theme == "3") {
     document.documentElement.style.setProperty("--background-gradient", "linear-gradient(180deg, hsl(19.8, 100%, 33.9%) 0%, hsl(16.9, 77.7%, 57.8%) 100%)")
@@ -385,6 +413,7 @@ function themes(theme) {
     document.documentElement.style.setProperty("--game-description-box-bg", "#ab3000")
     document.documentElement.style.setProperty("--server-card-bg", "#7e3f26")
     document.documentElement.style.setProperty("--download-bg", "linear-gradient(180deg, hsl(20, 100%, 16.5%) 0%, hsl(19.9, 69.6%, 40%) 100%)")
+    document.documentElement.style.setProperty("--volts-deg", "500deg")
   }
   if (theme == "4") {
     document.documentElement.style.setProperty("--background-gradient", "linear-gradient(180deg, hsl(109.6, 100%, 33.9%) 0%, hsl(149.1, 77.7%, 57.8%) 100%)")
@@ -403,6 +432,7 @@ function themes(theme) {
     document.documentElement.style.setProperty("--game-description-box-bg", "#036e00")
     document.documentElement.style.setProperty("--server-card-bg", "#0a5200")
     document.documentElement.style.setProperty("--download-bg", "linear-gradient(180deg, hsl(120.7, 100%, 16.5%) 0%, hsl(135.2, 69.6%, 40%) 100%)")
+    document.documentElement.style.setProperty("--volts-deg", "200deg")
   }
   if (theme == "5") {
     document.documentElement.style.setProperty("--background-gradient", "linear-gradient(180deg, hsl(306.6, 100%, 33.9%) 0%, hsl(295.3, 77.7%, 57.8%) 100%)")
@@ -421,6 +451,7 @@ function themes(theme) {
     document.documentElement.style.setProperty("--game-description-box-bg", "#970063")
     document.documentElement.style.setProperty("--server-card-bg", "#52003d")
     document.documentElement.style.setProperty("--download-bg", "linear-gradient(180deg, hsl(323.6, 100%, 16.5%) 0%, hsl(323.2, 69.6%, 40%) 100%)")
+    document.documentElement.style.setProperty("--volts-deg", "400deg")
   }
 
   if (theme == "6") {
@@ -440,6 +471,8 @@ function themes(theme) {
     document.documentElement.style.setProperty("--game-description-box-bg", "#000")
     document.documentElement.style.setProperty("--server-card-bg", "#232323")
     document.documentElement.style.setProperty("--download-bg", "linear-gradient(180deg, hsl(0, 0%, 26.3%) 0%, hsl(0, 0%, 0%) 100%)")
+    document.documentElement.style.setProperty("--volts-deg", "0")
+
   }
 }
 
@@ -467,9 +500,14 @@ async function spoilers() {
     }
     // INSANELY important -- hide ip
     document.querySelectorAll(".sidebar-tab")[2].classList.add("disabled")
-    document.querySelectorAll(".sidebar-tab")[2].innerHTML = `
-    <i class="fa-solid fa-clock-rotate-left"></i> Sessions (Streamer mode)
-`
+
+    const sidebartab_i = document.createElement("i")
+    sidebartab_i.classList.add("fa-solid")
+    sidebartab_i.classList.add("fa-clock-rotate-left");
+
+    document.querySelectorAll(".sidebar-tab")[2].textContent = ''
+    document.querySelectorAll(".sidebar-tab")[2].append(sidebartab_i, ` Sessions (Streamer mode)`)
+
 
     if (window.location.pathname == "/settings/sessions") {
 
@@ -533,7 +571,7 @@ async function init() {
     await navbar();
     await main();
     await games_page();
-    await profile_page();
+    await volts_page();
 
     if (config.streamer_mode) {
       document.querySelectorAll(".sidebar-tab").forEach((element) => {
